@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>crud app</title>
+    <style type="text/css">
+   
+    .container{
+        display: flex;
+        flex-direction:column;
+        align-items:flex-start
+        
+       
+    }
+  
+    </style>
+
+</head>
+<body>
+    {% block menu %}
+
+<div class="container">
+    <div class="nav">
+        <li><a href="{% url 'Home' %}"> Home </a> 
+        <li><a href="{% url 'Create' %}"> Add Record </a>
+        <li><a href="{% url 'Show' %}"> View Record </a>
+    </div>
+</div>
+
+
+{% block content %}
+<h4> this is my home page </h4>
+{% endblock %}
+
+ {% endblock %}
+
+
+
+</body>
+</html>

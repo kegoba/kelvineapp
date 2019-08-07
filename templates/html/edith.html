@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>crud app</title>
+    <style type="text/css">
+        .container {
+            display: flex;
+            padding: 10px;
+            margin: 5px;
+
+        }
+
+        input {
+            padding: 10px;
+            width: 400px
+        }
+
+        .btn {
+            padding: 10px;
+            width: 400px
+        }
+
+        .myform {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <form class="myform" action="update/" method="POST">
+        <h1> Edith Record </h1>
+
+        <div class="container">
+            <label role="name">name</label>
+        </div>
+        {% if name %}
+        <div>
+            <input type="text" id="name" name="name" value="{{name}}">
+        </div>
+        {% endif %}
+        
+        <div class="container">
+            <label role="description">product</label>
+        </div>
+        {% if product %}
+        <div>
+            <input type="text" id="product" name="product" value="{{product}}">
+        </div>
+        {% endif %}
+        <div class="container">
+            <label role="price">price</label>
+        </div>
+        {% if amount %}
+        <div>
+            <input type="text" id="amount" name="amount" value="{{amount}}">
+        </div>
+        {% endif %}
+        <div class="container">
+            <label role="description">description</label>
+        </div>
+        {% if description %}
+        <div>
+            <input type="text" id="d" name="d" value="{{description}}">
+        </div>
+        {% endif %}
+        <div class="container">
+            <button type="submit" class="btn"> Save </button>
+        </div>
+        {% csrf_token %}
+    </form>
+
+
+
+</body>
+
+</html>

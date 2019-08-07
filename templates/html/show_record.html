@@ -1,0 +1,35 @@
+{% extends "html/home.html" %}
+
+
+{% block content %}
+<div class="container">
+        <h1>  view records </h1>
+    <table>
+        <thead>
+            <tr>
+                <th> ID </th>
+                <th> Name </th>
+                <th> Product </th>
+                <th> Price </th>
+                <th> Description </th>
+                <th> Edith</th>
+                <th> Delete </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for records in record %}
+            <tr><td> {{ records.id}} </td>
+                <td> {{ records.name }} </td>
+                <td> {{ records.product }} </td>
+                <td> {{ records.amount }} </td>
+                <td> {{ records.description }} </td>
+                <td><a href='{% url "Edith" records.id %}'  > Edith </a> </td>
+                <td><a href='{% url "Delete" records.id %}'> Delete </a> </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+
+
