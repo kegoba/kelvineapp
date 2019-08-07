@@ -15,7 +15,7 @@ SECRET_KEY = 'lm(8+1id$vqa!0ta*9=&l7gg*k*#it-4_yztldvz1n1z(dfp1w'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['todo.herokuapp.com']
+ALLOWED_HOSTS = ['kelvineapp.herokuapp.com']
 
 
 # Application definition
@@ -40,7 +40,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'todo.urls'
+ROOT_URLCONF = 'kelvineapp.urls'
 
 TEMPLATES = [
     {
@@ -58,7 +58,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'todo.wsgi.application'
+WSGI_APPLICATION = 'kelvineapp.wsgi.application'
 
 
 # Database
