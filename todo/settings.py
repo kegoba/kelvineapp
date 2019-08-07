@@ -15,7 +15,7 @@ SECRET_KEY = 'lm(8+1id$vqa!0ta*9=&l7gg*k*#it-4_yztldvz1n1z(dfp1w'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['kelvineapp.herokuapp.com']
+ALLOWED_HOSTS = ['todo.herokuapp.com']
 
 
 # Application definition
