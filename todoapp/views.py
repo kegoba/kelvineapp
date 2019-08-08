@@ -16,6 +16,7 @@ def Create(request):
         data.amount = request.POST.get("amount" )
         data.description = request.POST.get("d")
         data.save()
+        return render(request, "html/home.html" , {} )
     return render(request, "html/create.html" , {} )
    
 
@@ -45,7 +46,9 @@ def Update(request, id):
         data.amount = request.POST.get("amount" )
         data.description = request.POST.get("d")
         data.save()
-    return render(request, "html/show_record.html")
+    record = Record2.objects.all()
+    #return render(request, "html/show_record.html")
+    return render(request, "html/show_record.html",{ "record" : record} )
 
 
 

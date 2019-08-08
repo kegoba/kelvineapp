@@ -15,7 +15,7 @@ SECRET_KEY = 'lm(8+1id$vqa!0ta*9=&l7gg*k*#it-4_yztldvz1n1z(dfp1w'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['kelvineapp.herokuapp.com']
+ALLOWED_HOSTS = ['kelvineapp.herokuapp.com', 'localhost' ]
 
 
 # Application definition
@@ -108,4 +108,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
+
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+    'static/',
+]
