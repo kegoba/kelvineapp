@@ -39,14 +39,15 @@ def Edith(request, id ):
              }) 
 
 def Update(request, id):
-    if request.method == "POST" and Record2.objects.get(id=id):
-        data = Record2()
-        data.name = request.POST.get("name")
-        data.product = request.POST.get("product")
-        data.amount = request.POST.get("amount" )
-        data.description = request.POST.get("d")
-        data.save()
-    record = Record2.objects.all()
+    if request.method == "POST":
+        if Record2.objects.get(id=id):
+            data = Record2()
+            data.name = request.POST.get("name")
+            data.product = request.POST.get("product")
+            data.amount = request.POST.get("amount" )
+            data.description = request.POST.get("d")
+            data.save()
+        record = Record2.objects.all()
     #return render(request, "html/show_record.html")
     return render(request, "html/show_record.html",{ "record" : record} )
 
