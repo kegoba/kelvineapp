@@ -1,1 +1,1 @@
-web: python manage.py collectstatic --noinput; gunicorn kelvineapp.wsgi --log-file -
+web: gunicorn kelvineapp.wsgi --log-file -
