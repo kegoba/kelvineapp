@@ -111,14 +111,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATIC_URL = '/static/'
 
-#STATICFILES_DIRS = (
-   # os.path.join(BASE_DIR, "kelvineapp/static"),
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
     
-#)
-STATICFILES_DIRS =( os.path.join(BASE_DIR, 'css/'),
-                    #os.path.join(STATIC_ROOT, 'javascript/'),
-                   # os.path.join(STATIC_ROOT, 'images/')
-                  )
+)
+
 WHITENOISE_ROOT = os.path.join(BASE_DIR, "STATIC", "ROOT")
 
 #django_heroku.settings(locals())
