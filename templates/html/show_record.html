@@ -23,8 +23,8 @@
                 <td> {{ records.product }} </td>
                 <td> {{ records.amount }} </td>
                 <td> {{ records.description }} </td>
-                <td><a href='{% url "Edith" records.id %}'  > Edith </a> </td>
-                <td><a href='{% url "Delete" records.id %}'> Delete </a> </td>
+                <td ><a class=" btn btn-success"  href='{% url "Edith" records.id %}'  > Edith </a> </td>
+                <td ><a class=" btn btn-danger" href='{% url "Delete" records.id %}'> Delete </a> </td>
             </tr>
             {% endfor %}
         </tbody>

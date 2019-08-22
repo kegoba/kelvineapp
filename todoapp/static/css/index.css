@@ -35,7 +35,9 @@ input[type="text"],input[type="password"],
     margin-top: 20px;
     margin-bottom: 40px;
 }
-
+.btn{
+    width: 150px
+}
 
 .pic{
       width: 300px;
@@ -50,6 +52,14 @@ input[type="text"],input[type="password"],
     margin-bottom: 20px;
     width:100%;
 }
+th{
+    
+    background: #739DF3;
+}
 
 
-
+th,td{
+    width: 150px;
+    height: 20px;
+    border: 1px solid black;
+}

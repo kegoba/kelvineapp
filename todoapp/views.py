@@ -1,5 +1,6 @@
 from django.shortcuts import ( render, redirect)
 from .models import Record2
+from django.db.models import F
 
 # Create your views here.
 
@@ -28,28 +29,46 @@ def Show(request):
 #To edith and updae the record
 def Edith(request, id ):
     qry = Record2.objects.get(id=id)
-    print(qry.id)
-    print(qry.name)
-
     return render(request, "html/edith.html",
              {
             "name":qry.name, "description":qry.description,
             "product":qry.product, "amount":qry.amount,
-            #"my_id":id.qry
              }) 
 
 def Update(request, id):
+    qry = Record2.objects.get(id=id)
     if request.method == "POST":
-        if Record2.objects.get(id=id):
-            data = Record2()
-            data.name = request.POST.get("name")
-            data.product = request.POST.get("product")
-            data.amount = request.POST.get("amount" )
-            data.description = request.POST.get("d")
-            data.save()
+        name = request.POST.get("name")
+        product = request.POST.get("product")
+        amount = request.POST.get("amount" )
+        description = request.POST.get("d")
+        qry.name = name
+        qry.product = product
+        qry.amount = amount
+        qry.description = description
+        qry.save()
         record = Record2.objects.all()
     #return render(request, "html/show_record.html")
     return render(request, "html/show_record.html",{ "record" : record} )
+
+
+
+
+
+def Update1(request, id):
+    data = Record2()
+    if request.method == "POST":
+        qry = Record2.objects.get(id=id)
+        data.name = request.POST.get("name")
+        data.product = request.POST.get("product")
+        data.amount = request.POST.get("amount" )
+        data.description = request.POST.get("d")
+    if qry:
+        data.save()
+    record = Record2.objects.all()
+    #return render(request, "html/show_record.html")
+    return render(request, "html/show_record.html",{ "record" : record} )
+
 
 
 

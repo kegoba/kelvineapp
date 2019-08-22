@@ -15,7 +15,7 @@
             <div class="row">
                 {% if name %}
                 <div class="col">
-                    <input type="text" id="name" name="name" value="{{name}}">
+                    <input type="text" required id="name" name="name" value="{{name}}">
                 </div>
                 {% endif %}
             </div>
@@ -32,7 +32,7 @@
             <div class="row">  
                 {% if product %}
                 <div class="col">
-                    <input type="text" id="product" name="product" value="{{product}}">
+                    <input type="text" required id="product" name="product" value="{{product}}">
                 </div>
                 {% endif %}
             </div>
@@ -48,7 +48,7 @@
             <div class="row"> 
                 {% if amount %}
                 <div class="col">
-                    <input type="text" id="price" name="amount" value="{{amount}}">
+                    <input type="text"  required id="price" name="amount" value="{{amount}}">
                 </div>
                 {% endif %}
             </div>
@@ -56,7 +56,7 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <label role="name">Description</label>
+                    <label role="name">Description <style</label>
                 </div>
             </div>
         </div>
@@ -64,7 +64,7 @@
             <div class="row">
                 {% if description %}
                 <div class="col">
-                    <input type="text" id="product" name="d" value="{{description}}">
+                    <input type="text" required id="product" name="d" value="{{description}}">
                 </div>
                 {% endif %}
             </div>

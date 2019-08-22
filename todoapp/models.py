@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 class Record2 (models.Model):
-    id = models.AutoField( primary_key=True)
+    id = models.AutoField( primary_key=True, serialize=True)
     name  = models.CharField(max_length=100)
     product = models.CharField(max_length=100)
     amount = models.CharField(max_length=100)
