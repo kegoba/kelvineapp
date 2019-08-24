@@ -57,10 +57,10 @@ def Update(request, id):
 
 #delete the record
 def Delete(request, id):
-    qry = Record2.objects.filter(id=id)
-    qry.delete()
+    record = Record2.objects.filter(id=id)
+    record.delete()
 
-    return render(request, "html/show_record.html")
+    return render(request, "html/show_record.html" { "record" : record })
 
 
 
