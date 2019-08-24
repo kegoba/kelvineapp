@@ -60,7 +60,7 @@ def Delete(request, id):
     record = Record2.objects.filter(id=id)
     record.delete()
 
-    return render(request, "html/show_record.html" { "record" : record })
+    return render(request, "html/show_record.html", { "record" : record })
 
 
 
