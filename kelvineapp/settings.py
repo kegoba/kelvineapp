@@ -120,24 +120,6 @@ STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
 
-REST_FRAMEWORK = {
-    'DEFAULT_RENDERER_CLASSES': [
-        'rest_framework.renderers.JSONRenderer',
-         'rest_framework.permissions.AllowAny',
-    ],
-    'DEFAULT_PARSER_CLASSES': [
-        'rest_framework.parsers.JSONParser',
-         'rest_framework.parsers.FormParser',
-          'rest_framework.permissions.AllowAny',
-    ]
-}
-
-
-
-#WHITENOISE_ROOT = os.path.join(BASE_DIR, "static/css", )
-CORS_ORIGIN_ALLOW_ALL = True
-CORS_ALLOW_CREDENTIALS = True
-
 CORS_ORIGIN_WHITELIST = (
        'http://localhost:3000',
        
