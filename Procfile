@@ -1,1 +1,1 @@
-web: gunicorn kelvineapp.wsgi --log-file -
+web: gunicorn kelvinaapp.wsgi:application --log-file - --log-level debug
