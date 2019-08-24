@@ -10,18 +10,29 @@
     <meta name="keywords" content="Styled Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
       Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
     
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+
     
     <style type="text/css">
+    .navbar{
+        display: inline-flex;
+        width: 100%;
+        padding: 20px;
+    }
     footer{
     background:#739DF3;
      margin-top: 150px;
      height: 100px;
+     text-align: center;
+}
+.mydata{
+    
+    text-align: center;
+
 }
 
 .footer{
     margin-top: 30px;
+    font-size: 20px;
  
 }
 .ref-2{
@@ -42,35 +53,30 @@ input[type="text"],input[type="password"],
  textarea[type="textarea"]{
 
     width: 300px;
-    padding:10px;
+    padding:15px;
     margin-bottom: 10px;
     margin-top: 10px;
 
 }
-.user-info{
-    margin-top: 20px;
-    margin-bottom: 40px;
-}
+
 .btn{
-    width: 150px
-}
-
-.pic{
-      width: 300px;
-    padding:10px;
-    margin-bottom: 10px;
-    margin-top: 10px;
-
-}
-
-.map{
-    margin-top: 10px;
-    margin-bottom: 20px;
-    width:100%;
-}
-th{
+    width: 150px;
     
-    background: #739DF3;
+}
+
+
+
+.show{
+text-align: center
+}
+table{
+    align-content: center
+}
+
+a{
+    padding: 15px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px
 }
 
 
@@ -79,7 +85,10 @@ th,td{
     height: 20px;
     border: 1px solid black;
 }
-
+ul{
+    display: inline;
+    padding-block-start: 200px
+}
   
     </style>
 
@@ -87,14 +96,14 @@ th,td{
 <body>
     {% block menu %}
     <nav class="navbar navbar-expand-lg navbar-light ">
-        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#dropDrown">
-            <span class="navbar-toggler-icon"> </span>
-        </button>
+        
+           
+        
         <div class="collapse navbar-collapse" id="dropDrown">
             <ul class="navbar-nav ">
-                <li class="nav-item"> <a class="nav-link" href="{% url 'Home' %}"> Home</a> </li>
-                <li class="nav-item"> <a class="nav-link" href="{% url 'Create' %}"> Add Record </a> </li>
-                <li class="nav-item"> <a class="nav-link" href="{% url 'Show' %}"> View Record </a> </li>
+                 <a class="nav-link" href="{% url 'Home' %}"> Home</a> 
+                <a class="nav-link" href="{% url 'Create' %}"> Add Record </a> 
+                 <a class="nav-link" href="{% url 'Show' %}"> View Record </a> 
             </ul>
     
         </div>
