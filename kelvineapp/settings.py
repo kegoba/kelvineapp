@@ -15,7 +15,7 @@ SECRET_KEY = 'lm(8+1id$vqa!0ta*9=&l7gg*k*#it-4_yztldvz1n1z(dfp1w'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['kelvineapp.herokuapp.com', 'localhost', '127.0.0.1' ]
+ALLOWED_HOSTS = ['kelvineapp.herokuapp.com', 'localhost' ]
 
 APPEND_SLASH=False
 # Application definition
@@ -117,6 +117,6 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+
 
 

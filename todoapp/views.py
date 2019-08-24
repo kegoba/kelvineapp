@@ -1,10 +1,7 @@
 from django.shortcuts import ( render, redirect)
 from .models import Record2
 from rest_framework.response import Response
-from rest_framework.decorators import api_view
-from rest_framework import status
-from rest_framework.parsers import JSONParser
-from .serializer import RecordSerializer
+
 
 # Create your views here.
 
@@ -66,28 +63,6 @@ def Delete(request, id):
 
     return render(request, "html/show_record.html")
 
-@api_view(['POST', 'GET'])
-def Create_api(request):
-    if request.method == "POST":
-        print(request.data)
-        data = JSONParser().parse(request)
-        serializer = RecordSerializer(data = request.data)
-        if serializer.is_valid():
-            print(serializer)
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-
-        
-        
-@api_view(['GET', 'POST'])
-def Show_api(request):
-    if request.method == "GET":
-        qry = Record2.objects.all()
-        serializer = RecordSerializer(qry, many = True) 
-        print(qry)
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
-    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
