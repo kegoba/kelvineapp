@@ -1,4 +1,4 @@
-from rest_framework.settings import api_settings
+
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -120,7 +120,3 @@ STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
 
-CORS_ORIGIN_WHITELIST = (
-       'http://localhost:3000',
-       
-)

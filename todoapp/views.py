@@ -5,7 +5,7 @@ from rest_framework.decorators import api_view
 from rest_framework import status
 from rest_framework.parsers import JSONParser
 from .serializer import RecordSerializer
-from rest_framework.settings import api_settings
+
 # Create your views here.
 
 def Home(request):
