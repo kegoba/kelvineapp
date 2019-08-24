@@ -1,7 +1,11 @@
 from django.shortcuts import ( render, redirect)
 from .models import Record2
-from django.db.models import F
-
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+from rest_framework import status
+from rest_framework.parsers import JSONParser
+from .serializer import RecordSerializer
+from rest_framework.settings import api_settings
 # Create your views here.
 
 def Home(request):
@@ -55,26 +59,35 @@ def Update(request, id):
 
 
 
-def Update1(request, id):
-    data = Record2()
-    if request.method == "POST":
-        qry = Record2.objects.get(id=id)
-        data.name = request.POST.get("name")
-        data.product = request.POST.get("product")
-        data.amount = request.POST.get("amount" )
-        data.description = request.POST.get("d")
-    if qry:
-        data.save()
-    record = Record2.objects.all()
-    #return render(request, "html/show_record.html")
-    return render(request, "html/show_record.html",{ "record" : record} )
-
-
-
-
 #delete the record
 def Delete(request, id):
     qry = Record2.objects.filter(id=id)
     qry.delete()
 
     return render(request, "html/show_record.html")
+
+@api_view(['POST', 'GET'])
+def Create_api(request):
+    if request.method == "POST":
+        print(request.data)
+        data = JSONParser().parse(request)
+        serializer = RecordSerializer(data = request.data)
+        if serializer.is_valid():
+            print(serializer)
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+        
+        
+@api_view(['GET', 'POST'])
+def Show_api(request):
+    if request.method == "GET":
+        qry = Record2.objects.all()
+        serializer = RecordSerializer(qry, many = True) 
+        print(qry)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
