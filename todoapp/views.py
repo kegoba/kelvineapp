@@ -1,6 +1,5 @@
 from django.shortcuts import ( render, redirect)
 from .models import Record2
-from rest_framework.response import Response
 
 
 # Create your views here.
