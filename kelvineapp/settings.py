@@ -17,7 +17,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['kelvineapp.herokuapp.com', 'localhost', '127.0.0.1' ]
 
-APPEND_SLASH=False
+APPEND_SLASH=True
 # Application definition
 
 INSTALLED_APPS = [

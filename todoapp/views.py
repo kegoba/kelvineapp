@@ -1,4 +1,6 @@
 from django.shortcuts import ( render, redirect)
+from django.http import JsonResponse
+
 from .models import Record2
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
@@ -80,8 +82,45 @@ def Showapi(request):
     if request.method == "GET":
         qry = Record2.objects.all()
         serializer = RecordSerializer(qry, many = True) 
-        print(qry)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
+
+
+@api_view(["GET", "PUT", "POST"])
+def Edithapi(request, id):
+
+    try:
+        qry = Record2.objects.get(id=id)
+        #return JsonResponse(qry={"qry" :qry}, data= request.data, status=status.HTTP_201_CREATED)
+       # print(request.data)
+    except Record2.DoesNotExist:
+        return Response( status=status.HTTP_404_NOT_FOUND)
+    if request.method == "GET":
+        serializer = RecordSerializer(qry)
+        return Response(serializer.data)
+
+
+    elif request.method == "POST":
+        serializer = RecordSerializer(qry, data=request.data) #data={"request": request.data})
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(["DELETE", "GET"])
+def Deleteapi(request, id):
+    try:
+        qry = Record2.objects.get(id=id)
+    except Record2.DoesNotExist:
+        return Response( status=status.HTTP_404_NOT_FOUND)
+    if request.method == "GET":
+        serializer = RecordSerializer(qry)
+        return Response(serializer.data)
+
+    elif request.method == "DELETE":
+        qry.delete()
+    return Response(request.data, status=status.HTTP_201_CREATED)
+    return Response(request.errors, status=status.HTTP_400_BAD_REQ)  
 
